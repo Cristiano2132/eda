@@ -24,7 +24,7 @@ class Optimizer:
         self.__checkpoint = checkpoint
         self.__model_type = model_type
 
-    def __model_regressor_evaluate(self, mdl, X, y) -> int:
+    def __model_regressor_evaluate(self, mdl, X, y)-> float:
         Xtr,  Xtest, ytr, ytest = train_test_split(
             X, y, test_size=0.2, random_state=0)
         mdl.fit(Xtr, ytr.ravel())
@@ -34,7 +34,7 @@ class Optimizer:
         mse = sum_squared_error/n
         return mse
 
-    def __model_classifier_evaluate(self, mdl, X, y) -> int:
+    def __model_classifier_evaluate(self, mdl, X, y)->int:
         Xtr,  Xtest, ytr, ytest = train_test_split(
             X, y, test_size=0.2, random_state=0)
         mdl.fit(Xtr, ytr.ravel())
@@ -43,7 +43,7 @@ class Optimizer:
             np.array(list(ypred)) == np.array(list(ytest)))
         return right_evaluations
 
-    def __get_objective_function(self, X, y, k_folds=3) -> any:
+    def __get_objective_function(self, X, y, k_folds:int=3) -> any:
         if self.__model_type == 'regressor':
             @use_named_args(self.__space)
             def objective(**params):
@@ -57,7 +57,7 @@ class Optimizer:
                 return self.__model_classifier_evaluate(mdl=self.__model, X=X, y=y)
             return objective
 
-    def find_optimal_params(self, X, y) -> dict:
+    def find_optimal_params(self, X, y) -> None:
         print(f"Wait: Finding the best parameters .....")
         checkpoint_dir = 'checkpoint'
         if not os.path.exists(checkpoint_dir):
