@@ -1,4 +1,4 @@
-<h1 align="center">Bayesian Optimization</h1>
+<h1 align="center">Exploratory Data Analysis</h1>
 
 ### 🏠 [Homepage]()
 
