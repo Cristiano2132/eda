@@ -108,7 +108,7 @@ class Optimizer:
                                              self.__counter, 10),
                                  random_state=0, n_jobs=-1)
 
-        print("Otimization had done ...")
+        print("Otimization done ...")
         self.best_params = dict(zip([s.name for s in self.__space], res_gp.x))
         self.accuracy = res_gp.fun
         self.best_model = self.__model.set_params(**self.best_params)
