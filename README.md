@@ -11,7 +11,7 @@
 To clone the repository, please open the terminal and navigate to the desired directory. Then execute the following command:
 
 ```bash
-git clone git@github.com:Cristiano2132/bayesian_optimization.git
+git clone git@github.com:Cristiano2132/eda.git
 ```
 
 ## Virtual environment
